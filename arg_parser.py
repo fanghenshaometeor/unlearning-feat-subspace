@@ -13,13 +13,13 @@ def parse_args():
     ##################################### General setting ############################################
     parser.add_argument("--seed", type=int, default=0, help="random seed")
     parser.add_argument("--save_dir", type=str, default=None, help="dir to save the trained models")
-    parser.add_argument("--model_path", type=str, default=None, help="the path of original model")
+    parser.add_argument("--model_path", type=str, default=None, help="the path of pretrained model")
 
     ##################################### Training setting #################################################
     parser.add_argument("--batch_size", type=int, default=128, help="batch size")
     parser.add_argument("--lr", type=float, default=None, help="initial learning rate")
     parser.add_argument("--momentum", type=float, default=0.9, help="momentum")
-    parser.add_argument("--weight_decay", type=float, default=None, help="weight decay")
+    parser.add_argument("--weight_decay", type=float, default=0.05, help="weight decay")
     parser.add_argument("--epochs", type=int, default=None, help="number of total epochs to run")
     parser.add_argument("--optim", type=str, default=None, help="optimizer")
 
