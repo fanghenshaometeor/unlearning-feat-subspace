@@ -22,7 +22,7 @@ LOFT is motivated by spectrum and reconstruction analyses into the low-dimension
 
 <a href="pics/fig_spectrum.jpg"><div align="center"><img src="pics/fig_spectrum.jpg"></div></a>
 
-Given the pretrained model and the remaining and forgetting feature covariances ${\bf\Sigma}^{\rm pre}_ {\rm fg}$ and ${\bf\Sigma}^{\rm pre}_ {\rm rm}$, LOFT optimizes a projection matrix $\bf U$ within the Stiefel manifold ${\rm St}(d,s)$ in the following form.
+Given the pretrained model and the remaining and forgetting feature covariances ${\mathbf\Sigma}^{\rm pre}_ {\rm fg}$ and ${\bf\Sigma}^{\rm pre}_ {\rm rm}$, LOFT optimizes a projection matrix $\bf U$ within the Stiefel manifold ${\rm St}(d,s)$ in the following form.
 
 $$
 \min_ {{\bf U}\in{\rm St}(d,s)}
