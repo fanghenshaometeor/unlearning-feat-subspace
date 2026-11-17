@@ -22,34 +22,34 @@ LOFT is motivated by spectrum and reconstruction analyses into the low-dimension
 
 <a href="pics/fig_spectrum.jpg"><div align="center"><img src="pics/fig_spectrum.jpg"></div></a>
 
-Given the pretrained model and the remaining and forgetting feature covariances ${\bf\Sigma}^{\rm pre}_{\rm fg}$ and ${\bf\Sigma}^{\rm pre}_{\rm rm}$, LOFT optimizes a projection matrix $\bf U$ within the Stiefel manifold ${\rm St}(d,s)$ in the following form.
+Given the pretrained model and the remaining and forgetting feature covariances ${\bf\Sigma}^{\rm pre}_ {\rm fg}$ and ${\bf\Sigma}^{\rm pre}_ {\rm rm}$, LOFT optimizes a projection matrix $\bf U$ within the Stiefel manifold ${\rm St}(d,s)$ in the following form.
 
 $$
-\min_{{\bf U}\in{\rm St}(d,s)}
+\min_ {{\bf U}\in{\rm St}(d,s)}
 {J}({\bf U})
 =
 \underbrace{
 \Bigl(
 \frac
-{{\rm Tr}({\bf U}^\top{\bf\Sigma}^{\rm pre}_{\rm fg}{\bf U})}
-{{\rm Tr}({\bf\Sigma}^{\rm pre}_{\rm fg})}
-\Bigr)^2}_{{\cal J}_{\rm fg}}
+{{\rm Tr}({\bf U}^\top{\bf\Sigma}^{\rm pre}_ {\rm fg}{\bf U})}
+{{\rm Tr}({\bf\Sigma}^{\rm pre}_ {\rm fg})}
+\Bigr)^2}_ {{\cal J}_ {\rm fg}}
 +
 \underbrace{
 \Bigl(
 \frac
-{{\rm Tr}\left({\bf\Sigma}^{\rm pre}_{\rm rm}-{\bf U}{\bf U}^\top{\bf\Sigma}^{\rm pre}_{\rm rm}{\bf U}{\bf U}^\top\right)}
-{{\rm Tr}\left({\bf\Sigma}^{\rm pre}_{\rm rm}\right)}
-\Bigr)^2}_{{\cal J}_{\rm rm}}.
+{{\rm Tr}\left({\bf\Sigma}^{\rm pre}_ {\rm rm}-{\bf U}{\bf U}^\top{\bf\Sigma}^{\rm pre}_ {\rm rm}{\bf U}{\bf U}^\top\right)}
+{{\rm Tr}\left({\bf\Sigma}^{\rm pre}_ {\rm rm}\right)}
+\Bigr)^2}_ {{\cal J}_ {\rm rm}}.
 $$
 
-- ${\cal J}_{\rm fg}$ quantifies the projection variance of the forgetting features onto the subspace spanned by $\bf U$. Minimizing ${\cal J}_{\rm fg}$ encourages $\bf U$ to capture minimal information of forgetting features, aiming to forget the knowledge of forgetting data.
-- ${\cal J}_{\rm rm}$ measures the projection variance of the remaining features captured within the complement subspace w.r.t. $\bf U$. Minimizing ${\cal J}_{\rm rm}$ forces $\bf U$ to preserve maximal information of remaining features, so as to maintain model performance on remaining data.
+- ${\cal J}_ {\rm fg}$ quantifies the projection variance of the forgetting features onto the subspace spanned by $\bf U$. Minimizing ${\cal J}_ {\rm fg}$ encourages $\bf U$ to capture minimal information of forgetting features, aiming to forget the knowledge of forgetting data.
+- ${\cal J}_ {\rm rm}$ measures the projection variance of the remaining features captured within the complement subspace w.r.t. $\bf U$. Minimizing ${\cal J}_ {\rm rm}$ forces $\bf U$ to preserve maximal information of remaining features, so as to maintain model performance on remaining data.
 
 
 LOFT has two main advantages:
-- **One-shot feature fetching.** Training features can be fetched and cached in a single forward pass before unlearning requests arrive. For each request, LOFT computes the two covariances from the cached features and optimizes $U$ without revisiting the raw training data.
-- **Plug-in module implementation.** At inference time, LOFT inserts the learned projector $UU^\top$ between the backbone and classifier. The pretrained model stays frozen, and each request requires storing only its own projection matrix.
+- **One-shot feature fetching.** Training features can be fetched and cached in a single forward pass before unlearning requests arrive. For each request, LOFT computes the two covariances from the cached features and optimizes $\bf U$ without revisiting the raw training data.
+- **Plug-in module implementation.** At inference time, LOFT inserts the learned projector $\bf UU^\top$ between the backbone and classifier. The pretrained model stays frozen, and each request requires storing only its own projection matrix.
 
 
 <a href="pics/fig_intro.jpg"><div align="center"><img src="pics/fig_intro.jpg"></div></a>
