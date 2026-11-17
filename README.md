@@ -26,9 +26,7 @@ Given the pretrained model and the remaining and forgetting feature covariances 
 
 $$
 \min_ {{\bf U}\in{\rm St}(d,s)}
-{J}({\bf U})
-=
-\underbrace{
+{J}({\bf U})=\underbrace{
 \Bigl(
 \frac
 {{\rm Tr}({\bf U}^\top{\bf\Sigma}^{\rm pre}_ {\rm fg}{\bf U})}
