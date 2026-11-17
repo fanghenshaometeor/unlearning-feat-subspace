@@ -22,7 +22,7 @@ LOFT is motivated by spectrum and reconstruction analyses into the low-dimension
 
 <a href="pics/fig_spectrum.jpg"><div align="center"><img src="pics/fig_spectrum.jpg"></div></a>
 
-Given the pretrained model and the remaining and forgetting feature covariances ${\mathbf\Sigma}^{\rm pre}_ {\rm fg}$ and ${\bf\Sigma}^{\rm pre}_ {\rm rm}$, LOFT optimizes a projection matrix $\bf U$ within the Stiefel manifold ${\rm St}(d,s)$ in the following form.
+Given the pretrained model and the remaining and forgetting feature covariances ${\bf\Sigma}^{\rm pre}_ {\rm fg}$ and ${\bf\Sigma}^{\rm pre}_ {\rm rm}$, LOFT optimizes a projection matrix $\bf U$ within the Stiefel manifold ${\rm St}(d,s)$ in the following form.
 
 $$
 \min_ {{\bf U}\in{\rm St}(d,s)}
@@ -68,7 +68,7 @@ Step.2. Run the `run_subspace.sh` to execute our subspace unlearning
 ```
 bash run_subspace.sh
 ```
-**Note**: If you would like to adapt our LOFT to configurations that differ from those in our paper, e.g., different pretrained models, datasets, or unlearning settings, <u>*please be sure to re-tune relevant hyper-parameters carefully to achieve satisfactory performance*</u>. We particularly recommend several key hyper-parameters: the subspace dimension `--subspace_s`, the optimization steps `--subspace_steps`, and the learning rate `--unlearn_lr`.
+**Note**: If you would like to adapt our LOFT to configurations that differ from those in our paper, e.g., different pretrained models, datasets, or unlearning settings, *<u>please be sure to re-tune relevant hyper-parameters carefully to achieve satisfactory performance</u>*. We particularly recommend several key hyper-parameters: the subspace dimension `--subspace_s`, the optimization steps `--subspace_steps`, and the learning rate `--unlearn_lr`.
 
 ---
 If u have problems abou the code or paper, u could contact me (fanghenshao97@outlook.com) or raise issues here.
